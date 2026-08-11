@@ -3,9 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Monaco GP | Sparsh's 18th Birthday</title>
+    <style>
+        /* Premium Global Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* 🌌 HYPER-DARK RACING BACKGROUND (ABSOLUTELY NO WHITE) */
+        body {
+            background-color: #020203; /* Deep Pitch Black Garage Base */
+            /* High-tech tactical carbon grid lines with ambient Red Bull / Ferrari red neon glow */
+            background-image: 
+                linear-gradient(rgba(225, 6, 0, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(225, 6, 0, 0.06) 1px, transparent 1px),
+                radial-gradient(at 0% 0%, rgba(225, 6, 0, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(255, 215, 0, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(10, 10, 18, 0.95) 0px, #020203 100%);
+            background-size: 25px 25px, 25px 25px, 100% 100%, 100% 100%, 100% 100%;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            letter-spacing: -0.2px;
+        }
+
+        /* Charcoal Polycarbon Dashboard Center Panel */
+        .paddock-card {
+            background: rgba(8, 8, 12, 0.92);
+            backdrop-filter: blur(35px);
+            -webkit-backdrop-filter: blur(35px);
+            width: 100%;
+            max-width: 700px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.04); /* Sleek micro border */
+            box-shadow: 
+                0 40px 90px rgba(0, 0, 0, 0.95),
+                0 0 60px rgba(225, 6, 0, 0.06);
+            overflow: hidden;
+        }
+
+        /* Top Header Telemetry Bar */
+        .header-bar {
+            background: rgba(4, 4, 6, 0.8);
+            padding: 16px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .track-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .red-accent-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #e10600;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #e10600;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.8); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(225, 6, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(225, 6, 0, 0); }
+        }
+
+        .track-title h2 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #52525b;
+            font-weight: 700;
+        }
+
+        .sector-badge {
+            background: linear-gradient(90deg, #ffd700, #ffa500);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Display Core */
+        .main-display {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* ✨ SPARSH'S BIRTHDAY HEADER - SAVED & ENHANCED */
+        .birthday-banner {
+            margin-bottom: 10px;
+        }
+
+        .birthday-text {
+            font-size: 2.1rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 20%, #ffd700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 35px rgba(255, 215, 0, 0.35);
+        }
+
+        .neon-divider {
+            height: 2px;
+            width: 140px;
+            background: linear-gradient(90deg, transparent, #e10600, transparent);
+            margin: 12px auto 0 auto;
+        }
+
+        .subtitle {
+            color: #4b5563;
+            font-size: 0.85rem;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        /* 🔎 COMPACT DOWNSIZED IMAGE VIEWPORT (50% WIDTH) */
+        .screenshot-viewport {
+            background: #010102;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            width: 50%; /* Image restricted down to 50% width size */
+            max-width: 380px;
+            position: relative;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot-viewport:hover {
+            transform: scale(1.04);
+            border-color: rgba(225, 6, 0, 0.6);
+            box-shadow: 0 0 30px rgba(225, 6, 0, 0.45);
+        }
+
+        .monaco-ss {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Bottom Telemetry Metrics Grid */
+        .telemetry-grid {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            padding-top: 30px;
+            width: 100%;
+        }
+
+        .metric-box {
+            background: rgba(255, 255, 255, 0.005);
+            border: 1px solid rgba(255, 255, 255, 0.015);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .metric-label {
+            font-size: 0.65rem;
+            color: #404040;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .metric-value {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #d4d4d8;
+        }
+
+        .metric-value.neon-green {
+            color: #39ff14;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+        }
+    </style>
 </head>
 <body>
-    <h1>this is version v5</h1>
+
+    <div class="paddock-card">
+        <!-- Live Track Header -->
+        <div class="header-bar">
+            <div class="track-title">
+                <div class="red-accent-dot"></div>
+                <h2>Circuit de Monaco // Special Edition</h2>
+            </div>
+            <span class="sector-badge">Age 18 Unlocked</span>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="main-display">
+            <!-- Sparsh's Birthday Header Maintained Safely At The Top -->
+            <div class="birthday-banner">
+                <h1 class="birthday-text">HAPPY 18TH BIRTHDAY SPARSH</h1>
+                <div class="neon-divider"></div>
+            </div>
+            
+            <p class="subtitle">Monaco Grand Prix VIP telemetry and celebratory race suite.</p>
+            
+            <!-- Compact Centered Image Element -->
+            <div class="screenshot-viewport">
+                <img src="monaco.png" alt="Monaco Screenshot Feed" class="monaco-ss">
+            </div>
+
+            <!-- Bottom Data Display -->
+            <div class="telemetry-grid">
+                <div class="metric-box">
+                    <span class="metric-label">Driver Status</span>
+                    <span class="metric-value">Legal To Drive 🏎️</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">Level</span>
+                    <span class="metric-value neon-green">Rank 18</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">Tyre Compound</span>
+                    <span class="metric-value" style="color: #e10600;">Party Soft (S)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
-</html>git 
+</html>
